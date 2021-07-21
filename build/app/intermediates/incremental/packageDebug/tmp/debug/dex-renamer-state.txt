@@ -1,0 +1,4 @@
+#Wed Jul 21 15:41:09 IST 2021
+base.0=D\:\\VS_CODE\\projects\\flutter projects\\spotify_ui\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

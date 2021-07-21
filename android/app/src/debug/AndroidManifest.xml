@@ -4,4 +4,10 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    package="com.example.android.multidex.musicapp">
+        <application
+            android:name="androidx.multidex.MultiDexApplication">
+
+        </application>
 </manifest>

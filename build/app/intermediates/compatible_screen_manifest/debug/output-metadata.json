@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.example.spotify_ui",
+  "applicationId": "com.example.musicapp",
   "variantName": "debug",
   "elements": []
 }

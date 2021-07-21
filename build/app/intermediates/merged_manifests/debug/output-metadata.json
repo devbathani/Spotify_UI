@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.spotify_ui",
+  "applicationId": "com.example.musicapp",
   "variantName": "debug",
   "elements": [
     {

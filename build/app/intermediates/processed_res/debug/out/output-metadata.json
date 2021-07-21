@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.example.spotify_ui",
+  "applicationId": "com.example.musicapp",
   "variantName": "processDebugResources",
   "elements": [
     {

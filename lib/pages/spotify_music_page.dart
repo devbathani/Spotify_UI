@@ -1,5 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 
 class SpotifyMusicPage extends StatefulWidget {
   const SpotifyMusicPage({Key? key}) : super(key: key);
@@ -35,57 +36,56 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
               end: Alignment.bottomCenter,
               colors: [Colors.greenAccent, Colors.blueGrey, Colors.black87]),
         ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 35,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 10),
-                  child: Container(
-                    height: 22,
-                    width: 22,
-                    child: Image.asset(
-                      'icon/arrow.png',
-                      color: Colors.white,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "PLAYING FROM SEARCH",
-                      style: TextStyle(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              // SizedBox(
+              //   height: 35,
+              // ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Center(
+                    child: Center(
+                      child: Icon(
+                        Icons.keyboard_arrow_down_outlined,
                         color: Colors.white,
-                        fontSize: 13,
+                        size: 50,
                       ),
                     ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Text(
-                      '\"monte" ${'in Songs'}',
-                      style: TextStyle(
+                  ),
+                  // SizedBox(
+                  //   width: 50,
+                  // ),
+                  Column(
+                    children: [
+                      Text(
+                        "PLAYING FROM SEARCH",
+
+                        // Implement google fonts instead.
+                        style: TextStyle(
                           color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 46,
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 19, vertical: 10),
-                  child: Container(
+                          fontSize: 13,
+                        ),
+                      ),
+                      // SizedBox(
+                      //   height: 2,
+                      // ),
+                      Text(
+                        '\"monte" ${'in Songs'}',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  // SizedBox(
+                  //   width: 46,
+                  // ),
+                  Container(
                     height: 22,
                     width: 22,
                     child: Image.asset(
@@ -94,27 +94,26 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 57,
-            ),
-            Container(
-              height: 310,
-              width: 310,
-              child: Image.asset(
-                'icon/song.jpg',
-                fit: BoxFit.cover,
+                ],
               ),
-            ),
-            SizedBox(
-              height: 63,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
+              SizedBox(
+                height: 57,
+              ),
+              Container(
+                height: 310,
+                width: 310,
+                child: Image.asset(
+                  'icon/song.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(
+                height: 63,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -143,64 +142,69 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                     child: Container(
                       height: 21,
                       width: 21,
-                      child: Image.asset(
-                        'icon/heart.png',
-                        fit: BoxFit.cover,
-                      ),
+                      // child: Image.asset(
+                      //   'icon/heart.png',
+                      //   fit: BoxFit.cover,
+                      // ),
+                      child: Icon(Icons.favorite_outline),
                     ),
                   ),
+                  Spacer(),
                 ],
               ),
-            ),
-            Column(
-              children: [
-                slider(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18),
-                  child: Row(
+              Column(
+                children: [
+                  slider(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
+                      Spacer(),
                       Text(
-                          "${position.inMinutes}: ${position.inSeconds.remainder(60)}",
+                          "${position.inMinutes}:${position.inSeconds.remainder(60)}",
                           style: TextStyle(color: Colors.grey)),
                       SizedBox(
                         width: 270,
                       ),
                       Text(
-                        "${musicLength.inMinutes}: ${musicLength.inSeconds.remainder(60)}",
+                        "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
                         style: TextStyle(color: Colors.grey),
-                      )
+                      ),
+                      Spacer(),
                     ],
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
                     height: 35,
                     width: 35,
-                    child: Image.asset(
-                      'icon/merge.png',
+                    // child: Image.asset(
+                    //   'icon/merge.png',
+                    //   color: Colors.white,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    child: Icon(
+                      Icons.shuffle_rounded,
+                      size: 30,
                       color: Colors.white,
-                      fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(
-                    width: 35,
-                  ),
+                  // SizedBox(
+                  //   width: 35,
+                  // ),
                   Icon(
                     Icons.skip_previous,
                     color: Colors.white,
                     size: 45,
                   ),
-                  SizedBox(
-                    width: 22,
-                  ),
+                  // SizedBox(
+                  //   width: 22,
+                  // ),
                   Container(
                     height: 65,
                     width: 65,
@@ -211,7 +215,7 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                       onTap: () {
                         AssetsAudioPlayer assetsAudioPlayer =
                             AssetsAudioPlayer();
-                        assetsAudioPlayer.open(Audio("Assets/middle.mp3"));
+                        assetsAudioPlayer.open(Audio("assets/middle.mp3"));
                         if (!playing) {
                           setState(() {
                             playbtn = Icons.pause;
@@ -229,17 +233,17 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 22,
-                  ),
+                  // SizedBox(
+                  //   width: 22,
+                  // ),
                   Icon(
                     Icons.skip_next,
                     color: Colors.white,
                     size: 45,
                   ),
-                  SizedBox(
-                    width: 35,
-                  ),
+                  // SizedBox(
+                  //   width: 35,
+                  // ),
                   Icon(
                     Icons.repeat,
                     color: Colors.white,
@@ -247,8 +251,10 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                   ),
                 ],
               ),
-            )
-          ],
+              Spacer(),
+              Spacer(),
+            ],
+          ),
         ),
       ),
     );

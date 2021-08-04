@@ -11,17 +11,7 @@ class SpotifyMusicPage extends StatefulWidget {
 
 class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
   Duration position = new Duration();
-  Duration musicLength = new Duration();
-
-  Widget slider() {
-    return Slider(
-      value: position.inSeconds.toDouble(),
-      max: musicLength.inSeconds.toDouble(),
-      activeColor: Colors.black,
-      inactiveColor: Color(0xff23241f),
-      onChanged: (value) => this.position = position,
-    );
-  }
+  Duration duration = new Duration();
 
   bool playing = false;
   IconData playbtn = Icons.play_arrow;
@@ -154,7 +144,7 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
               ),
               Column(
                 children: [
-                  slider(),
+                  MySlider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -166,7 +156,7 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                         width: 270,
                       ),
                       Text(
-                        "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
+                        "${duration.inMinutes}:${duration.inSeconds.remainder(60)}",
                         style: TextStyle(color: Colors.grey),
                       ),
                       Spacer(),
@@ -215,13 +205,17 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
                       onTap: () {
                         AssetsAudioPlayer assetsAudioPlayer =
                             AssetsAudioPlayer();
-                        assetsAudioPlayer.open(Audio("assets/middle.mp3"));
+                        assetsAudioPlayer.open(
+                          Audio("assets/middle.mp3"),
+                          showNotification: true,
+                        );
                         if (!playing) {
                           setState(() {
                             playbtn = Icons.pause;
                             playing = true;
                           });
                         } else {
+                          assetsAudioPlayer.pause();
                           playbtn = Icons.play_arrow;
                           playing = false;
                         }
@@ -257,6 +251,34 @@ class _SpotifyMusicPageState extends State<SpotifyMusicPage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MySlider extends StatefulWidget {
+  const MySlider({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<MySlider> createState() => _MySliderState();
+}
+
+class _MySliderState extends State<MySlider> {
+  double _currentSliderValue = 20;
+  @override
+  Widget build(BuildContext context) {
+    return Slider(
+      value: _currentSliderValue,
+      min: 0,
+      max: 100,
+      // divisions: 5,
+      label: _currentSliderValue.round().toString(),
+      onChanged: (double value) {
+        setState(() {
+          _currentSliderValue = value;
+        });
+      },
     );
   }
 }
